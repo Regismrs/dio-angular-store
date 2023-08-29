@@ -7,14 +7,16 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { BannerComponent } from './shared/components/banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    BannerComponent,
     HomeComponent,
+    FooterComponent,
+    NavbarComponent,
     SliderComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
