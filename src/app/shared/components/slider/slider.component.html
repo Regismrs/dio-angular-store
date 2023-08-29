@@ -1,0 +1,39 @@
+<section class="slider">
+    <h2 *ngIf="sectionLabel" class="slider__label">{{ sectionLabel }}</h2>
+
+    <div class="slider__slides">
+
+        <div class="slider__slide" *ngFor="let game of games">
+
+            <div>
+                <img [src]="game.imgUrl" [alt]="game.name"  [ngClass]="{'tall': displayTall}">
+            </div>
+
+            <span *ngIf="showName">
+                <h4 *ngIf="!displayTall;else gamenametall">🎮 {{game.name}}</h4>
+                <ng-template #gamenametall>
+                    <h2>🎮 {{game.name}}</h2>
+                </ng-template>
+            </span>
+
+            <span *ngIf="showPrice">
+                <h2 *ngIf="game.discount == 0;else promocao" class="price">
+                    R$ {{game.price.toFixed(2)}}
+                </h2>
+
+                <ng-template #promocao>
+                    <span class="tag-discount">Desconto {{game.discount}}%</span>
+                    <h2 class="price">
+                        <span class="old">R$ {{game.price}}</span>
+                        R$ {{(game.price * (100 - game.discount) / 100).toFixed(2)}}
+                    </h2>
+                </ng-template>
+
+            </span>
+
+            <h5 *ngIf="showDescription" class="description">{{game.description}}</h5>
+
+        </div>
+
+    </div>
+</section>
